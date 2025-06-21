@@ -19,7 +19,8 @@ public class SupplierService {
     @Autowired
     SupplierRepo supplierRepo;
 
-    @Autowired @Qualifier("supplierValidator")
+    @Autowired
+    @Qualifier("supplierCreateValidator")
     private ValidatorStrategy<SupplierCreateDTO> supplierValidator;
 
     public List<SupplierDTO> getAll() {

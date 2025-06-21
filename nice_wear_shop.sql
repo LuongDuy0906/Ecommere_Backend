@@ -122,8 +122,6 @@ INSERT INTO users (name, email, password, role) VALUES
 ('Sarah Wilson', 'sarah.wilson@email.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', 'customer'),
 ('Emma Davis', 'emma.davis@email.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', 'customer');
 
-update users set password = "$2a$12$gFpukJgS87eYXAVr3UuUju/JN5CLlP/CY2kuzlyHMdBk.uuG3/e.S" where id = 2;
-select * from users;
 -- Insert data into employees table
 INSERT INTO employees (user_id, position, salary, hire_date) VALUES
 (2, 'Manager', 5000.00, '2024-01-15'),
@@ -143,7 +141,6 @@ INSERT INTO products (name, description, price, old_price, stock, image, image_h
 ('Casual T-Shirt', 'Soft cotton t-shirt in various colors.', 19.99, NULL, 200, '/images/tshirt1.jpg', '/images/tshirt1-hover.jpg', 1),
 ('Sneakers', 'Stylish and comfortable sneakers for everyday wear.', 89.99, 99.99, 80, '/images/sneakers1.jpg', '/images/sneakers1-hover.jpg', 2);
 
-select * from products;
 -- Insert data into product_reviews table
 INSERT INTO product_reviews (product_id, user_id, rating, comment) VALUES
 (1, 1, 4, 'Great jeans, very comfortable but slightly tight.'),
@@ -170,8 +167,6 @@ INSERT INTO orders (user_id, total_amount, status) VALUES
 (4, 79.99, 'processing'),
 (5, 199.99, 'pending');
 
-select * from orders;
-delete from orders where id = 5;
 -- Insert data into order_items table
 INSERT INTO order_items (order_id, product_id, quantity, price) VALUES
 (1, 1, 2, 59.99),
