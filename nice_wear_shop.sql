@@ -122,6 +122,8 @@ INSERT INTO users (name, email, password, role) VALUES
 ('Sarah Wilson', 'sarah.wilson@email.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', 'customer'),
 ('Emma Davis', 'emma.davis@email.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', 'customer');
 
+select * from users;
+update users set password = "$2a$12$PdfiIbr2/fvUCZ0ZKiKMDuNZ1PwlWdezkisRdzGXUp81JcI1eop9K" where id = 2;
 -- Insert data into employees table
 INSERT INTO employees (user_id, position, salary, hire_date) VALUES
 (2, 'Manager', 5000.00, '2024-01-15'),
@@ -167,12 +169,15 @@ INSERT INTO orders (user_id, total_amount, status) VALUES
 (4, 79.99, 'processing'),
 (5, 199.99, 'pending');
 
+select * from orders;
 -- Insert data into order_items table
 INSERT INTO order_items (order_id, product_id, quantity, price) VALUES
 (1, 1, 2, 59.99),
 (1, 4, 1, 19.99),
 (2, 2, 1, 79.99),
 (3, 3, 1, 199.99);
+
+select * from order_item;
 
 -- Insert data into wishlists table
 INSERT INTO wishlists (user_id, product_id) VALUES
