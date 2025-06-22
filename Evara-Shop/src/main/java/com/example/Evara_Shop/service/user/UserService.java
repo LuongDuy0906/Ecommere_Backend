@@ -26,9 +26,11 @@ public class UserService {
     @Autowired
     private RoleCheckHandler roleCheck;
 
-    @Autowired @Qualifier("userCreateValidator")
+    @Autowired
+    @Qualifier("userCreateValidator")
     UserCreateValidator userCreateValidator;
-    @Autowired @Qualifier("userUpdateValidator")
+    @Autowired
+    @Qualifier("userUpdateValidator")
     UserUpdateValidator userUpdateValidator;
 
     @Autowired
@@ -44,6 +46,10 @@ public class UserService {
 
     public UserDTO create(UserCreateDTO dto) {
         userCreateValidator.validate(dto);
+
+        if (userRepo.existsByEmail(dto.getEmail())) {
+            throw new IllegalArgumentException("The email is existing");
+        }
         User user = UserBuilder.from(dto);
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
         User saved = userRepo.save(user);
