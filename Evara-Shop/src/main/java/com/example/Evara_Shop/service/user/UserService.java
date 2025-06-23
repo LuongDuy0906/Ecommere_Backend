@@ -79,6 +79,7 @@ public class UserService {
                 .orElseThrow(() -> new RuntimeException("User không tồn tại"));
 
         // Ghép chuỗi kiểm tra
+        roleCheck.handle(user);
         roleCheck.handle(user); // chạy qua chain
 
         userRepo.delete(user); // chỉ xóa nếu qua toàn bộ handler

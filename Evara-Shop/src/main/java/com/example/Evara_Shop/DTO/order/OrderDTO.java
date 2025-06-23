@@ -1,7 +1,7 @@
 package com.example.Evara_Shop.DTO.order;
 
 import com.example.Evara_Shop.model.Order;
-import com.example.Evara_Shop.enums.OrderStatus;
+import com.example.Evara_Shop.adapter.OrderStatusAdapter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -11,14 +11,15 @@ public class OrderDTO {
     private String userName;
     private LocalDateTime orderDate;
     private BigDecimal totalAmount;
-    private OrderStatus status;
+    private String status;
 
     public OrderDTO(Order order) {
         this.id = order.getId();
         this.userName = order.getUser().getName();
         this.orderDate = order.getOrderDate();
         this.totalAmount = order.getTotalAmount();
-        this.status = order.getStatus();
+        this.status = OrderStatusAdapter.toDisplay(order.getStatus());
+        ;
     }
 
     public Long getId() {
@@ -37,8 +38,7 @@ public class OrderDTO {
         return totalAmount;
     }
 
-    public OrderStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 }
-
